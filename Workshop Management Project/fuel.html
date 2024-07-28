@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuel Management System</title>
+    <link rel="stylesheet" href="fuel.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fuel Management System</h1>
+      <form id="fuelForm">
+        <label for="vehicleName">Vehicle Name:</label>
+        <input type="text" id="vehicleName" name="vehicleName" required />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="fuelAmount">Fuel Amount (litres):</label>
+        <input
+          type="number"
+          id="fuelAmount"
+          name="fuelAmount"
+          step="0.01"
+          required
+        />
+
+        <label for="distance">Distance Travelled (km):</label>
+        <input
+          type="number"
+          id="distance"
+          name="distance"
+          step="0.01"
+          required
+        />
+
+        <button type="button" onclick="addFuelEntry()">Add Entry</button>
+      </form>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchBar"
+          onkeyup="searchEntries()"
+          placeholder="Search for entries.."
+        />
+      </div>
+
+      <table id="fuelTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Vehicle Name</th>
+            <th onclick="sortTable(1)">Date</th>
+            <th onclick="sortTable(2)">Fuel Amount (litres)</th>
+            <th onclick="sortTable(3)">Distance Travelled (km)</th>
+            <th onclick="sortTable(4)">Mileage (km/litre)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="fuelTableBody">
+          <!-- Fuel entries will be added here -->
+        </tbody>
+      </table>
+
+      <h2>Fuel Consumption Report</h2>
+      <div id="fuelReport">
+        <p>Total Fuel Consumed: <span id="totalFuel">0</span> litres</p>
+        <p>Total Distance Travelled: <span id="totalDistance">0</span> km</p>
+        <p>Average Mileage: <span id="averageMileage">0</span> km/litre</p>
+      </div>
+    </div>
+    <script src="fuel.js"></script>
+  </body>
+</html>

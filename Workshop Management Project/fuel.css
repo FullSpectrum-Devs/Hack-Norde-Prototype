@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: #007bff;
+}
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+    font-size: 16px;
+}
+
+#searchBar:focus {
+    border-color: #007bff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+th {
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+th:hover {
+    background-color: #0056b3;
+}
+
+tr:hover td {
+    background-color: #f1f1f1;
+}
+
+#fuelReport {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#fuelReport p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    form, table {
+        width: 100%;
+    }
+}

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+    <title>...Workshop Management System...</title>
+
+    <style>
+      
+      body {
+        margin: 0;
+        box-sizing: border-box;
+      }
+  
+      #greet{
+        color: yellow
+      }
+      /* CSS for header */
+      .header 
+      {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        outline: #5edaf0;
+        background-color: #f5f5f5;
+      }
+  
+      .header .logo {
+        font-size: 25px;
+        font-family: 'Sriracha', cursive;
+        color: #000;
+        text-decoration: none;
+        margin-left: 30px;
+      }
+  
+      .nav-items {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #f5f5f5;
+        margin-right: 20px;
+      }
+  
+      .nav-items a {
+        text-decoration: none;
+        color: #000;
+        padding: 35px 20px;
+        font-size: 1rem;
+      }
+  
+      /* CSS for main element */
+      .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 520px;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://imcindore.mp.gov.in/_next/image?url=https:%2F%2Fimcindore.mp.gov.in%2Fuploads%2Fbanner1_indore_cff444dbf4.png&w=1080&q=75");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+  
+      .intro h1 {
+        font-family: sans-serif;
+        font-size: 60px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .intro h2 {
+        font-family: sans-serif;
+        font-size: 30px;
+        color: #fff;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0;
+      }
+  
+      .intro p {
+        font-size: 20px;
+        color: #d1d1d1;
+        text-transform: uppercase;
+        margin: 20px 0;
+      }
+  
+      .intro button {
+        background-color: #5edaf0;
+        color: #000;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+      }
+  
+      .achievements {
+        display: flex;
+        display: flexbox;
+        justify-content: space-around;
+        align-items: center;
+        padding: 40px 80px;
+      }
+  
+      .achievements .work {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 40px;
+      }
+  
+      .achievements .work i {
+        width: fit-content;
+        font-size: 50px;
+        color: #333333;
+        border-radius: 50%;
+        border: 2px solid #333333;
+        padding: 12px;
+        
+      }
+  
+      .achievements .work .work-heading {
+        font-size: 20px;
+        color: #333333;
+        text-transform: uppercase;
+        margin: 10px 0;
+      }
+  
+      .achievements .work .work-text {
+        font-size: 15px;
+        color: #585858;
+        margin: 10px 0;
+      }
+  
+      .about-me {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 80px;
+        border-top: 2px solid #eeeeee;
+      }
+  
+      .about-me img {
+        width: 500px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+  
+      .about-me-text h2 {
+        font-size: 30px;
+        color: #333333;
+        text-transform: uppercase;
+        margin: 0;
+      }
+  
+      .about-me-text p {
+        font-size: 15px;
+        color: #585858;
+        margin: 10px 0;
+      }
+  
+      /* CSS for footer */
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #302f49;
+        padding: 10px 50px;
+      }
+  
+      .footer .copy {
+        color: #fff;
+      }
+  
+      .bottom-links {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 40px 0;
+      }
+  
+      .bottom-links .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 40px;
+      }
+  
+      .bottom-links .links span {
+        font-size: 20px;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 10px 0;
+      }
+  
+      .bottom-links .links a {
+        text-decoration: none;
+        color: #a1a1a1;
+        padding: 10px 20px;
+      }
+
+
+      /*  */
+
+      div.work{
+        width: 70rem;
+        margin: 1rem;
+      }
+    </style>
+    <style>
+      .work:hover {
+          transform: scale(1.05);
+          background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+      }
+  
+      .work:hover i {
+          color: #00bcd4;
+      }
+  
+      .work:hover .work-heading {
+          color: #00bcd4;
+      }
+  </style>
+
+
+
+
+<style>
+.work:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+}
+
+.work:hover i {
+  color: #00bcd4;
+}
+
+.work:hover .work-heading {
+  color: #00bcd4;
+}
+</style>
+
+<style>
+.work:hover {
+    transform: scale(1.05);
+    background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+}
+
+.work:hover i {
+    color: #00bcd4;
+}
+
+.work:hover .work-heading {
+    color: #00bcd4;
+}
+</style>
+
+
+
+<style>
+.work:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+}
+
+.work:hover i {
+  color: #00bcd4;
+}
+
+.work:hover .work-heading {
+  color: #00bcd4;
+}
+
+
+</style>
+
+<style>
+.work:hover {
+transform: scale(1.05);
+background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+}
+
+.work:hover i {
+color: #00bcd4;
+}
+
+.work:hover .work-heading {
+color: #00bcd4;
+}
+</style>
+
+
+<style>
+.work:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #e0f7fa, #b2ebf2);
+}
+
+.work:hover i {
+  color: #00bcd4;
+}
+
+.work:hover .work-heading {
+  color: #00bcd4;
+}
+</style>
+</head>
+
+<body>
+    
+  <header class="header">
+    <img src="https://tse4.mm.bing.net/th?id=OIP.5AK-jwGeOolkxIKyC0nFZwHaB1&pid=Api&P=0&h=180" width="" height="100">
+    <a href="#" class="logo">Workshop Management System</a>
+    <nav class="nav-items">
+      <b><a href="home.html" style="font-size: 20px; text-decoration: none; color: #000;">Home</a></b>
+      <b><a href="#" style="font-size: 20px; text-decoration: none; color: #000;">About</a></b>
+      <b><a href="#" style="font-size: 20px; text-decoration: none; color: #000;">Contact</a></b>
+      <button id="signoutbutton" style="font-size: 24px; text-decoration: none; color: #000;"><a href="index.html">LOG out</a></button>
+    </nav>
+  </header>
+  <main>
+    
+
+    <div class="intro">
+      <h2 id="greet"></h2>
+
+    <h2 id="msg"></h2>
+      <h1>Indore Municiple corporation</h1>
+      <p>smart and cleanest city in india</p>
+      <!-- <a href="login.html"><button>LOG IN</button></a>&nbsp;
+      <a href="register.html"><button>SIGN UP</button></a> -->
+
+      
+      
+      
+    </div>
+    <div class="achievements">
+      <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+        <i class="fas fa-atom" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+        <a href="twooption.html" style="text-decoration: none;">
+            <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+                <b>Employee Manage.</b>
+            </p>
+        </a>
+        <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+            <pre style="margin: 0;">Track Employees data and working hours</pre>
+        </p>
+    </div>
+
+
+      <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+        <i class="fas fa-atom" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+        <a href="fuel.html" style="text-decoration: none;">
+            <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+                <b>Fuel Consumption</b>
+            </p>
+        </a>
+        <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+          <pre style="margin: 0;"></pre>
+          <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+            <p style="margin: 0;">Monitor and fuel expenses. Generate fuel usage reports.</p>
+    </div>
+     
+    
+        <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+          <i class="fas fa-skiing" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+          <a href="work.html" style="text-decoration: none;">
+              <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+                  <b>Work Management</b>
+              </p>
+          </a>
+          <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+              <pre style="margin: 0;">Monitor and record work tasks in Municipal corporation.</pre>
+          </p>
+      </div>
+      
+      
+
+        
+      </div>
+      <div class="achievements">
+        <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+          <i class="fas fa-ethernet" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+          <a href="roster.html" style="text-decoration: none;">
+              <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+                  <b>Roster Management</b>
+              </p>
+          </a>
+          <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+              <pre style="margin: 0;">Manage vehicle schedules through timeline view </pre>
+          </p>
+        </div>
+
+
+        <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+          <i class="fas fa-atom" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+          <a href="expense.html" style="text-decoration: none;">
+              <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+                  <b>Expense Tracking</b>
+              </p>
+          </a>
+          <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+            <pre style="margin: 0;"></pre>
+            <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+              <p style="margin: 0;">Monitor and record expenses. Generate expense reports.</p>
+          
+      </div>
+      
+    
+    <div class="work" style="border: 2px solid #5edaf0; border-radius: 10px; padding: 20px; background: linear-gradient(145deg, #f5f7fa, #c3cfe2); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+      <i class="fas fa-atom" style="font-size: 50px; color: #5edaf0; margin-bottom: 10px; transition: color 0.3s ease;"></i>
+      <a href="reporting.html" style="text-decoration: none;">
+          <p class="work-heading" style="font-size: 20px; color: #333; text-transform: uppercase; margin: 10px 0; transition: color 0.3s ease;">
+              <b>Reporting and Analytics</b>
+          </p>
+      </a>
+      <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+          <pre style="margin: 0;"></pre>
+          <p class="work-text" style="font-size: 15px; color: #585858; margin: 10px 0;">
+            <p style="margin: 0;">Visual represention through various charts.</p>
+        
+      
+  </div>
+  
+  
+  
+  
+      </div>
+
+    </div>
+    <div class="about-me">
+      <div class="about-me-text">
+        <h2>Address :- </h2>
+        <p style="
+    font-family: 'Georgia', serif; 
+    color: #333; 
+    background: #f9f9f9; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+    line-height: 1.6; 
+    text-align: left; 
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+">
+    Narayan Sing Saput Marg, Shivaji Market, Nagar Nigam Square, Indore, Madhya Pradesh 452007 <br><br>
+<strong>INDORE MUNICIPAL CORPORATION (M.P ONLY) – 0731-253 5555</strong>
+</p>
+
+      </div>
+      <img src="https://tse4.mm.bing.net/th?id=OIP.5AK-jwGeOolkxIKyC0nFZwHaB1&pid=Api&P=0&h=180" alt="me">
+    </div>
+  </main>
+
+  <script>
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+    let MsgHead = document.getElementById('msg');
+    let GreetHead = document.getElementById('greet');
+    let SignoutBtn = document.getElementById('signoutbutton');
+
+   
+
+    let Signout = ()=>{
+      sessionStorage.removeItem("user-cred");
+      sessionStorage.remove.Item("user-info");
+      window.location.href = 'login.html'
+    }
+
+    let CheckCred = ()=>{
+      if(!sessionStorage.getItem("user-creds"))
+        window.location.href = 'login.html'
+      else{
+        MsgHead.innerText = `welcome to `;
+    GreetHead.innerHTML = `Hello  ${UserInfo.firstname + " " + UserInfo.lastname}!`;
+      }
+    }
+
+    window.addEventListener('load', CheckCred);
+    SignoutBtn.addEventListener('click', Signout);
+  </script>
+  </body>
+
+</html>

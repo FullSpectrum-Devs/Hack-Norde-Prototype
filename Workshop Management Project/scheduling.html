@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Vehicle Scheduling System</title>
+    <link rel="stylesheet" href="scheduling.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vehicle Scheduling System</h1>
+        </div>
+    </header>
+    <main>
+        <section id="vehicle-entry">
+            <div class="container">
+                <h2>Enter Vehicle Data</h2>
+                <form id="vehicle-form">
+                    <label for="vehicle-id">Vehicle ID:</label>
+                    <input type="text" id="vehicle-id" name="vehicle-id" required>
+                    <label for="vehicle-type">Vehicle Type:</label>
+                    <input type="text" id="vehicle-type" name="vehicle-type" required>
+                    <label for="start-time">Start Time:</label>
+                    <input type="datetime-local" id="start-time" name="start-time" required>
+                    <label for="end-time">End Time:</label>
+                    <input type="datetime-local" id="end-time" name="end-time" required>
+                    <button type="submit">Add Vehicle</button>
+                </form>
+            </div>
+        </section>
+        <section id="schedule">
+            <div class="container">
+                <h2>Vehicle Schedule</h2>
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Vehicle ID</th>
+                            <th>Vehicle Type</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Scheduled vehicles will appear here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="scheduling.js"></script>
+</body>
+</html>
