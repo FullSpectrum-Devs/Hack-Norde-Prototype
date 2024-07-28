@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Reward System</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 100%;
+        max-width: 800px;
+      }
+
+      h1,
+      h2 {
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        margin-top: 10px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .search-container {
+        margin: 20px 0;
+      }
+
+      #searchBar {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
+
+      th {
+        cursor: pointer;
+        background-color: #f4f4f4;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Employee Reward System</h1>
+      <form id="rewardForm">
+        <label for="employeeName">Employee Name:</label>
+        <input type="text" id="employeeName" name="employeeName" required />
+
+        <label for="employeeId">Employee ID:</label>
+        <input type="text" id="employeeId" name="employeeId" required />
+
+        <label for="performanceScore">Performance Score (0-100):</label>
+        <input
+          type="number"
+          id="performanceScore"
+          name="performanceScore"
+          min="0"
+          max="100"
+          required
+        />
+
+        <label for="yearsWorked">Hours Worked:</label>
+        <input
+          type="number"
+          id="yearsWorked"
+          name="yearsWorked"
+          min="0"
+          required
+        />
+
+        <button type="button" onclick="calculateReward()">
+          Calculate Reward
+        </button>
+      </form>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchBar"
+          onkeyup="searchEmployees()"
+          placeholder="Search for employees.."
+        />
+      </div>
+
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Name</th>
+            <th onclick="sortTable(1)">ID</th>
+            <th onclick="sortTable(2)">Score</th>
+            <th onclick="sortTable(3)">Hours</th>
+            <th onclick="sortTable(4)">Reward</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTableBody">
+          <!-- Employee rows will be added here -->
+        </tbody>
+      </table>
+    </div>
+    <script>
+      let employees = [];
+
+      function calculateReward() {
+        const employeeName = document.getElementById("employeeName").value;
+        const employeeId = document.getElementById("employeeId").value;
+        const performanceScore = parseInt(
+          document.getElementById("performanceScore").value
+        );
+        const yearsWorked = parseInt(
+          document.getElementById("yearsWorked").value
+        );
+
+        if (performanceScore < 0 || performanceScore > 100) {
+          alert("Performance score must be between 0 and 100.");
+          return;
+        }
+
+        let rewardAmount = performanceScore * 10 + yearsWorked * 50;
+
+        const employee = {
+          name: employeeName,
+          id: employeeId,
+          score: performanceScore,
+          years: yearsWorked,
+          reward: rewardAmount,
+        };
+
+        employees.push(employee);
+        displayEmployees();
+        document.getElementById("rewardForm").reset();
+      }
+
+      function displayEmployees() {
+        const tbody = document.getElementById("employeeTableBody");
+        tbody.innerHTML = "";
+
+        employees.forEach((employee, index) => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+                  <td>${employee.name}</td>
+                  <td>${employee.id}</td>
+                  <td>${employee.score}</td>
+                  <td>${employee.years}</td>
+                  <td>$${employee.reward}</td>
+                  <td>
+                      <button onclick="editEmployee(${index})">Edit</button>
+                      <button onclick="deleteEmployee(${index})">Delete</button>
+                  </td>
+              `;
+
+          tbody.appendChild(row);
+        });
+      }
+
+      function editEmployee(index) {
+        const employee = employees[index];
+
+        document.getElementById("employeeName").value = employee.name;
+        document.getElementById("employeeId").value = employee.id;
+        document.getElementById("performanceScore").value = employee.score;
+        document.getElementById("yearsWorked").value = employee.years;
+
+        employees.splice(index, 1);
+        displayEmployees();
+      }
+
+      function deleteEmployee(index) {
+        employees.splice(index, 1);
+        displayEmployees();
+      }
+
+      function sortTable(n) {
+        let table,
+          rows,
+          switching,
+          i,
+          x,
+          y,
+          shouldSwitch,
+          dir,
+          switchcount = 0;
+        table = document.getElementById("employeeTable");
+        switching = true;
+        dir = "asc";
+
+        while (switching) {
+          switching = false;
+          rows = table.rows;
+
+          for (i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+            } else if (dir == "desc") {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+            }
+          }
+
+          if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+          } else {
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+          }
+        }
+      }
+
+      function searchEmployees() {
+        let input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchBar");
+        filter = input.value.toLowerCase();
+        table = document.getElementById("employeeTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 1; i < tr.length; i++) {
+          tr[i].style.display = "none";
+          td = tr[i].getElementsByTagName("td");
+          for (j = 0; j < td.length; j++) {
+            if (td[j]) {
+              txtValue = td[j].textContent || td[j].innerText;
+              if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                break;
+              }
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

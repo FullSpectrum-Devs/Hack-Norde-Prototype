@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Order Management System</title>
+    <link rel="stylesheet" href="work.css">
+</head>
+<body>
+    <header>
+        
+        <h1>Work Order Management System</h1>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div id="status-summary">
+                <div class="status-card">Pending: <span id="pending-count">0</span></div>
+                <div class="status-card">In Progress: <span id="in-progress-count">0</span></div>
+                <div class="status-card">Completed: <span id="completed-count">0</span></div>
+            </div>
+        </section>
+        <section id="create-work-order">
+            <h2>Create Work Order</h2>
+            <form id="work-order-form">
+                <label for="task">Task Description:</label>
+                <input type="text" id="task" name="task" required>
+                
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" name="due-date" required>
+
+                <label for="worker">Assign to Worker:</label>
+                <input type="text" id="worker" name="worker" required>
+
+                <button type="submit">Create Work Order</button>
+            </form>
+        </section>
+        <section id="work-orders">
+            <h2>Work Orders</h2>
+            <ul id="work-order-list"></ul>
+        </section>
+    </main>
+    <script src="work.js"></script>
+</body>
+</html>

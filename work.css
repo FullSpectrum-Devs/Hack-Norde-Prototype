@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+header h1 {
+    display: inline;
+    margin-left: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+#status-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.status-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 30%;
+}
+
+form {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: white;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
